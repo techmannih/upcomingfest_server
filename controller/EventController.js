@@ -58,3 +58,24 @@ exports.newEventController = async (req, res) => {
     res.status(500).json({ message: "Error in backend" });
   }
 };
+// Get details of all events
+exports.AllEvents = async (req, res) => {
+  // res.send("Hello from the server!");
+  try {
+    const events = await eventModel.find();
+    if (events.length > 0) {
+      return res.status(200).send({
+        success: true,
+        events: events,
+      });
+    } else {
+      return res.status(404).send({
+        success: false,
+        message: "No events found",
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
