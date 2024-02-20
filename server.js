@@ -1,8 +1,12 @@
 const express = require("express");
-
 const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+
 // env config
 dotenv.config();
+
+// mongodb connection
+connectDB();
 
 const app = express();
 
