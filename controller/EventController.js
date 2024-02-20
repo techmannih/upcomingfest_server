@@ -53,9 +53,9 @@ exports.newEventController = async (req, res) => {
       message: "New event created",
       event: savedEvent,
     });
-  } catch (err) {
+  }  catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Error in backend" });
+    res.status(500).json({ message: "Error in newEventController", error: err.message });
   }
 };
 // Get details of all events
@@ -76,6 +76,7 @@ exports.AllEvents = async (req, res) => {
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Error in AllEvents", error: err.message });
   }
+
 };
