@@ -9,6 +9,6 @@ const {
 
 router.get("/allEvents", AllEvents);
 
-router.post("/addEvent", upload.single("image"), newEventController);
+router.put("/addEvent", upload.single("image"), newEventController);
 
 module.exports = router;
