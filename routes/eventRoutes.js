@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { upload } = require("../config/multer.middleware");
 
 const {
   AllEvents,
@@ -9,6 +8,6 @@ const {
 
 router.get("/allEvents", AllEvents);
 
-router.put("/addEvent", upload.single("image"), newEventController);
+router.put("/addEvent", newEventController);
 
 module.exports = router;
